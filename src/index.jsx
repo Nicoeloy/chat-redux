@@ -13,7 +13,7 @@ import '../assets/stylesheets/application.scss';
 
 // State and reducers
 const reducers = combineReducers({
-  changeMe: (state = null, action) => state
+  changeMe: (state = null, action) => state,
   messages: messageReducer,
   channels: channelsReducer,
   currentUser: currentUserReducer,
