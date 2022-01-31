@@ -1,6 +1,10 @@
-export default function(state = null, action) {
+const channelsReducer = (state = null, action) => {
   switch (action.type) {
+    case '':
+      return state;
     default:
       return state;
   }
-}
+};
+
+export default channelsReducer;
