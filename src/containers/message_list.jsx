@@ -15,8 +15,8 @@ class MessageList extends Component {
   render() {
     return (
       <div className="message-list">
-        {this.props.messages.map((message, index) => {
-          return <Message key={message.created_at} message={message} tabIndex={index} />;
+        {this.props.message.map((message) => {
+          return <Message key={message.created_at} message={message} />;
         })}
       </div>
     );
