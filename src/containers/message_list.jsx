@@ -1,27 +1,29 @@
 import React, { Component } from 'react';
-// import { bindActionCreators } from "redux";
+import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
+
+import { fetchMessages } from "../actions";
 import Message from "../components/message";
 
-import { setMessages } from "../actions";
-
-
 class MessageList extends Component {
-
-  // componentWillMount() {
-  //   this.props.setMessages();
-  // }
+  componentWillMount() {
+    this.fetchMessages();
+  }
 
   render() {
     return (
-      <div className="message-list">
-        {this.props.message.map((message) => {
-          return <Message key={message.created_at} message={message} />;
-        })}
+      <div className="channel-container">
+        <div className="channel-content" ref={(list) => { this.list = list; }}>
+          {
+            this.props.messages.map((message) => {
+              return <Message key={message.id} message={message} />;
+            })
+          }
+        </div>
       </div>
     );
   }
-};
+}
 
 function mapStateToProps(state) {
   return {
@@ -29,9 +31,8 @@ function mapStateToProps(state) {
   };
 }
 
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators({ setMessages }, dispatch);
-// }
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchMessages }, dispatch);
+}
 
-// export default FlatList;
-export default connect(mapStateToProps)(MessageList);
+export default connect(mapStateToProps, mapDispatchToProps)(MessageList);

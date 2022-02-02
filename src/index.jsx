@@ -13,7 +13,7 @@ import '../assets/stylesheets/application.scss';
 
 // State and reducers
 import messagesReducer from '../reducers/messages_reducer';
-import selectedChannelReducer  from '../reducers/selected_channel_reducer';
+import selectedChannelReducer from '../reducers/selected_channel_reducer';
 
 const identityReducer = (state = null) => state;
 
@@ -34,7 +34,7 @@ const reducers = combineReducers({
 });
 
 const middlewares = applyMiddleware(reduxPromise, logger);
-const store = createStore(reducers, initialState, middlewares)
+const store = createStore(reducers, initialState, middlewares);
 
 // render an instance of the component in the DOM
 ReactDOM.render(
